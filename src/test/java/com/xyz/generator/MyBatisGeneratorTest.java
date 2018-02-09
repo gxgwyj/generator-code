@@ -34,7 +34,8 @@ public class MyBatisGeneratorTest {
         Configuration config = cp.parseConfiguration(this.getClass().getClassLoader().getResourceAsStream("generatorConfig.xml"));
             
         DefaultShellCallback shellCallback = new DefaultShellCallback(true);
-        
+
+        //
         try {
             MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, shellCallback, warnings);
             myBatisGenerator.generate(null);
