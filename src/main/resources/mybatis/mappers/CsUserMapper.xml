@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyz.app.dao.CsUserMapper">
+    <resultMap id="BaseResultMap" type="com.xyz.app.entity.CsUser">
+        <id column="user_id" jdbcType="BIGINT" property="userId" />
+        <result column="user_name" jdbcType="VARCHAR" property="userName" />
+        <result column="user_mobile" jdbcType="VARCHAR" property="userMobile" />
+        <result column="user_email" jdbcType="VARCHAR" property="userEmail" />
+        <result column="user_address" jdbcType="VARCHAR" property="userAddress" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        user_id, user_name, user_mobile, user_email, user_address
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from cs_user
+        where user_id = #{userId,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from cs_user
+        where user_id = #{userId,jdbcType=BIGINT}
+    </delete>
+    <insert id="insertSelective" parameterType="com.xyz.app.entity.CsUser">
+        insert into cs_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="userMobile != null">
+                user_mobile,
+            </if>
+            <if test="userEmail != null">
+                user_email,
+            </if>
+            <if test="userAddress != null">
+                user_address,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="userMobile != null">
+                #{userMobile,jdbcType=VARCHAR},
+            </if>
+            <if test="userEmail != null">
+                #{userEmail,jdbcType=VARCHAR},
+            </if>
+            <if test="userAddress != null">
+                #{userAddress,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.xyz.app.entity.CsUser">
+        update cs_user
+        <set>
+            <if test="userName != null">
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="userMobile != null">
+                user_mobile = #{userMobile,jdbcType=VARCHAR},
+            </if>
+            <if test="userEmail != null">
+                user_email = #{userEmail,jdbcType=VARCHAR},
+            </if>
+            <if test="userAddress != null">
+                user_address = #{userAddress,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where user_id = #{userId,jdbcType=BIGINT}
+    </update>
+    <select id="selectByWhere" parameterType="com.xyz.app.entity.CsUser" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from cs_user
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="userId != null">
+                 and user_id = #{userId,jdbcType=BIGINT}
+            </if>
+            <if test="userName != null">
+                 and user_name = #{userName,jdbcType=VARCHAR}
+            </if>
+            <if test="userMobile != null">
+                 and user_mobile = #{userMobile,jdbcType=VARCHAR}
+            </if>
+            <if test="userEmail != null">
+                 and user_email = #{userEmail,jdbcType=VARCHAR}
+            </if>
+            <if test="userAddress != null">
+                 and user_address = #{userAddress,jdbcType=VARCHAR}
+            </if>
+        </trim>
+    </select>
+</mapper>
