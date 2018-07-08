@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyz.app.dao.MfUserAuthInfoMapper">
+    <resultMap id="BaseResultMap" type="com.xyz.app.entity.MfUserAuthInfo">
+        <id column="USER_ID" jdbcType="VARCHAR" property="userId" />
+        <result column="REAL_NAME" jdbcType="VARCHAR" property="realName" />
+        <result column="CERT_TYPE" jdbcType="VARCHAR" property="certType" />
+        <result column="CERT_NO" jdbcType="VARCHAR" property="certNo" />
+        <result column="GENDER" jdbcType="VARCHAR" property="gender" />
+        <result column="RACE" jdbcType="VARCHAR" property="race" />
+        <result column="ISSUED_BY" jdbcType="VARCHAR" property="issuedBy" />
+        <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+        <result column="ZIP_CODE" jdbcType="VARCHAR" property="zipCode" />
+        <result column="COUNTRY" jdbcType="VARCHAR" property="country" />
+        <result column="PROVINCE" jdbcType="VARCHAR" property="province" />
+        <result column="CITY" jdbcType="VARCHAR" property="city" />
+        <result column="AREA" jdbcType="VARCHAR" property="area" />
+        <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+        <result column="CARD_ADDRESS" jdbcType="VARCHAR" property="cardAddress" />
+        <result column="REGISTERED_CELL" jdbcType="VARCHAR" property="registeredCell" />
+        <result column="GMT_MODIFIED" jdbcType="TIMESTAMP" property="gmtModified" />
+        <result column="MEMO" jdbcType="VARCHAR" property="memo" />
+        <result column="GMT_CREATE" jdbcType="TIMESTAMP" property="gmtCreate" />
+        <result column="CERT_VALID_BEGIN_DATE" jdbcType="VARCHAR" property="certValidBeginDate" />
+        <result column="CERT_VALID_END_DATE" jdbcType="VARCHAR" property="certValidEndDate" />
+        <result column="PROFESSION" jdbcType="VARCHAR" property="profession" />
+        <result column="CERT_SOURCE" jdbcType="VARCHAR" property="certSource" />
+        <result column="CERT_STATUS" jdbcType="VARCHAR" property="certStatus" />
+        <result column="REGISTER_FROM" jdbcType="VARCHAR" property="registerFrom" />
+        <result column="FREEZE_AMOUNT" jdbcType="DECIMAL" property="freezeAmount" />
+        <result column="CREDIT_AMOUNT" jdbcType="DECIMAL" property="creditAmount" />
+        <result column="CREDIT_FEE" jdbcType="DECIMAL" property="creditFee" />
+        <result column="CERT_SCORE" jdbcType="DECIMAL" property="certScore" />
+        <result column="AGENT_PERSON_NAME" jdbcType="VARCHAR" property="agentPersonName" />
+        <result column="AGENT_PERSON_CELL" jdbcType="VARCHAR" property="agentPersonCell" />
+        <result column="AUDIT_STATUS" jdbcType="VARCHAR" property="auditStatus" />
+        <result column="CERT_POSPHOTO" jdbcType="VARCHAR" property="certPosphoto" />
+        <result column="CERT_REVERPHOTO" jdbcType="VARCHAR" property="certReverphoto" />
+        <result column="CERT_VIDEO" jdbcType="VARCHAR" property="certVideo" />
+        <result column="AUDIT_USER" jdbcType="VARCHAR" property="auditUser" />
+        <result column="GMT_AUDIT" jdbcType="TIMESTAMP" property="gmtAudit" />
+        <result column="CERT_LEVEL" jdbcType="VARCHAR" property="certLevel" />
+        <result column="RECOMMEND_CREDIT_AMOUNT" jdbcType="DECIMAL" property="recommendCreditAmount" />
+        <result column="RECOMMEND_CREDIT_FEE" jdbcType="DECIMAL" property="recommendCreditFee" />
+        <result column="AUDIT_RESON" jdbcType="VARCHAR" property="auditReson" />
+        <result column="USERD_CREDIT_AMOUNT" jdbcType="DECIMAL" property="userdCreditAmount" />
+        <result column="LONGITUDE" jdbcType="VARCHAR" property="longitude" />
+        <result column="LATITUDE" jdbcType="VARCHAR" property="latitude" />
+        <result column="AGENT_PERSON_RELATION" jdbcType="VARCHAR" property="agentPersonRelation" />
+        <result column="BODY_CERT_PHOTO" jdbcType="VARCHAR" property="bodyCertPhoto" />
+        <result column="AUDIT_OPTION_JSON" jdbcType="VARCHAR" property="auditOptionJson" />
+        <result column="REJECT_CODE" jdbcType="VARCHAR" property="rejectCode" />
+        <result column="REJECT_DESC" jdbcType="VARCHAR" property="rejectDesc" />
+        <result column="GMT_AUTH" jdbcType="TIMESTAMP" property="gmtAuth" />
+        <result column="FREEZE_STATUS" jdbcType="VARCHAR" property="freezeStatus" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        USER_ID,
+		REAL_NAME,
+		CERT_TYPE,
+		CERT_NO,
+		GENDER,
+		RACE,
+		ISSUED_BY,
+		EMAIL,
+		ZIP_CODE,
+		COUNTRY,
+		PROVINCE,
+		CITY,
+		AREA,
+		ADDRESS,
+		CARD_ADDRESS,
+		REGISTERED_CELL,
+		GMT_MODIFIED,
+		MEMO,
+		GMT_CREATE,
+		CERT_VALID_BEGIN_DATE,
+		CERT_VALID_END_DATE,
+		PROFESSION,
+		CERT_SOURCE,
+		CERT_STATUS,
+		REGISTER_FROM,
+		FREEZE_AMOUNT,
+		CREDIT_AMOUNT,
+		CREDIT_FEE,
+		CERT_SCORE,
+		AGENT_PERSON_NAME,
+		AGENT_PERSON_CELL,
+		AUDIT_STATUS,
+		CERT_POSPHOTO,
+		CERT_REVERPHOTO,
+		CERT_VIDEO,
+		AUDIT_USER,
+		GMT_AUDIT,
+		CERT_LEVEL,
+		RECOMMEND_CREDIT_AMOUNT,
+		RECOMMEND_CREDIT_FEE,
+		AUDIT_RESON,
+		USERD_CREDIT_AMOUNT,
+		LONGITUDE,
+		LATITUDE,
+		AGENT_PERSON_RELATION,
+		BODY_CERT_PHOTO,
+		AUDIT_OPTION_JSON,
+		REJECT_CODE,
+		REJECT_DESC,
+		GMT_AUTH,
+		FREEZE_STATUS
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from MF_USER_AUTH_INFO
+        where USER_ID = #{userId,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from MF_USER_AUTH_INFO
+        where USER_ID = #{userId,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insertSelective" parameterType="com.xyz.app.entity.MfUserAuthInfo">
+        insert into MF_USER_AUTH_INFO
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                USER_ID,
+            </if>
+            <if test="realName != null">
+                REAL_NAME,
+            </if>
+            <if test="certType != null">
+                CERT_TYPE,
+            </if>
+            <if test="certNo != null">
+                CERT_NO,
+            </if>
+            <if test="gender != null">
+                GENDER,
+            </if>
+            <if test="race != null">
+                RACE,
+            </if>
+            <if test="issuedBy != null">
+                ISSUED_BY,
+            </if>
+            <if test="email != null">
+                EMAIL,
+            </if>
+            <if test="zipCode != null">
+                ZIP_CODE,
+            </if>
+            <if test="country != null">
+                COUNTRY,
+            </if>
+            <if test="province != null">
+                PROVINCE,
+            </if>
+            <if test="city != null">
+                CITY,
+            </if>
+            <if test="area != null">
+                AREA,
+            </if>
+            <if test="address != null">
+                ADDRESS,
+            </if>
+            <if test="cardAddress != null">
+                CARD_ADDRESS,
+            </if>
+            <if test="registeredCell != null">
+                REGISTERED_CELL,
+            </if>
+            <if test="gmtModified != null">
+                GMT_MODIFIED,
+            </if>
+            <if test="memo != null">
+                MEMO,
+            </if>
+            <if test="gmtCreate != null">
+                GMT_CREATE,
+            </if>
+            <if test="certValidBeginDate != null">
+                CERT_VALID_BEGIN_DATE,
+            </if>
+            <if test="certValidEndDate != null">
+                CERT_VALID_END_DATE,
+            </if>
+            <if test="profession != null">
+                PROFESSION,
+            </if>
+            <if test="certSource != null">
+                CERT_SOURCE,
+            </if>
+            <if test="certStatus != null">
+                CERT_STATUS,
+            </if>
+            <if test="registerFrom != null">
+                REGISTER_FROM,
+            </if>
+            <if test="freezeAmount != null">
+                FREEZE_AMOUNT,
+            </if>
+            <if test="creditAmount != null">
+                CREDIT_AMOUNT,
+            </if>
+            <if test="creditFee != null">
+                CREDIT_FEE,
+            </if>
+            <if test="certScore != null">
+                CERT_SCORE,
+            </if>
+            <if test="agentPersonName != null">
+                AGENT_PERSON_NAME,
+            </if>
+            <if test="agentPersonCell != null">
+                AGENT_PERSON_CELL,
+            </if>
+            <if test="auditStatus != null">
+                AUDIT_STATUS,
+            </if>
+            <if test="certPosphoto != null">
+                CERT_POSPHOTO,
+            </if>
+            <if test="certReverphoto != null">
+                CERT_REVERPHOTO,
+            </if>
+            <if test="certVideo != null">
+                CERT_VIDEO,
+            </if>
+            <if test="auditUser != null">
+                AUDIT_USER,
+            </if>
+            <if test="gmtAudit != null">
+                GMT_AUDIT,
+            </if>
+            <if test="certLevel != null">
+                CERT_LEVEL,
+            </if>
+            <if test="recommendCreditAmount != null">
+                RECOMMEND_CREDIT_AMOUNT,
+            </if>
+            <if test="recommendCreditFee != null">
+                RECOMMEND_CREDIT_FEE,
+            </if>
+            <if test="auditReson != null">
+                AUDIT_RESON,
+            </if>
+            <if test="userdCreditAmount != null">
+                USERD_CREDIT_AMOUNT,
+            </if>
+            <if test="longitude != null">
+                LONGITUDE,
+            </if>
+            <if test="latitude != null">
+                LATITUDE,
+            </if>
+            <if test="agentPersonRelation != null">
+                AGENT_PERSON_RELATION,
+            </if>
+            <if test="bodyCertPhoto != null">
+                BODY_CERT_PHOTO,
+            </if>
+            <if test="auditOptionJson != null">
+                AUDIT_OPTION_JSON,
+            </if>
+            <if test="rejectCode != null">
+                REJECT_CODE,
+            </if>
+            <if test="rejectDesc != null">
+                REJECT_DESC,
+            </if>
+            <if test="gmtAuth != null">
+                GMT_AUTH,
+            </if>
+            <if test="freezeStatus != null">
+                FREEZE_STATUS,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userId != null">
+                #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="realName != null">
+                #{realName,jdbcType=VARCHAR},
+            </if>
+            <if test="certType != null">
+                #{certType,jdbcType=VARCHAR},
+            </if>
+            <if test="certNo != null">
+                #{certNo,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                #{gender,jdbcType=VARCHAR},
+            </if>
+            <if test="race != null">
+                #{race,jdbcType=VARCHAR},
+            </if>
+            <if test="issuedBy != null">
+                #{issuedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="zipCode != null">
+                #{zipCode,jdbcType=VARCHAR},
+            </if>
+            <if test="country != null">
+                #{country,jdbcType=VARCHAR},
+            </if>
+            <if test="province != null">
+                #{province,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="area != null">
+                #{area,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="cardAddress != null">
+                #{cardAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="registeredCell != null">
+                #{registeredCell,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtModified != null">
+                #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="memo != null">
+                #{memo,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtCreate != null">
+                #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="certValidBeginDate != null">
+                #{certValidBeginDate,jdbcType=VARCHAR},
+            </if>
+            <if test="certValidEndDate != null">
+                #{certValidEndDate,jdbcType=VARCHAR},
+            </if>
+            <if test="profession != null">
+                #{profession,jdbcType=VARCHAR},
+            </if>
+            <if test="certSource != null">
+                #{certSource,jdbcType=VARCHAR},
+            </if>
+            <if test="certStatus != null">
+                #{certStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="registerFrom != null">
+                #{registerFrom,jdbcType=VARCHAR},
+            </if>
+            <if test="freezeAmount != null">
+                #{freezeAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="creditAmount != null">
+                #{creditAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="creditFee != null">
+                #{creditFee,jdbcType=DECIMAL},
+            </if>
+            <if test="certScore != null">
+                #{certScore,jdbcType=DECIMAL},
+            </if>
+            <if test="agentPersonName != null">
+                #{agentPersonName,jdbcType=VARCHAR},
+            </if>
+            <if test="agentPersonCell != null">
+                #{agentPersonCell,jdbcType=VARCHAR},
+            </if>
+            <if test="auditStatus != null">
+                #{auditStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="certPosphoto != null">
+                #{certPosphoto,jdbcType=VARCHAR},
+            </if>
+            <if test="certReverphoto != null">
+                #{certReverphoto,jdbcType=VARCHAR},
+            </if>
+            <if test="certVideo != null">
+                #{certVideo,jdbcType=VARCHAR},
+            </if>
+            <if test="auditUser != null">
+                #{auditUser,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtAudit != null">
+                #{gmtAudit,jdbcType=TIMESTAMP},
+            </if>
+            <if test="certLevel != null">
+                #{certLevel,jdbcType=VARCHAR},
+            </if>
+            <if test="recommendCreditAmount != null">
+                #{recommendCreditAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="recommendCreditFee != null">
+                #{recommendCreditFee,jdbcType=DECIMAL},
+            </if>
+            <if test="auditReson != null">
+                #{auditReson,jdbcType=VARCHAR},
+            </if>
+            <if test="userdCreditAmount != null">
+                #{userdCreditAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="longitude != null">
+                #{longitude,jdbcType=VARCHAR},
+            </if>
+            <if test="latitude != null">
+                #{latitude,jdbcType=VARCHAR},
+            </if>
+            <if test="agentPersonRelation != null">
+                #{agentPersonRelation,jdbcType=VARCHAR},
+            </if>
+            <if test="bodyCertPhoto != null">
+                #{bodyCertPhoto,jdbcType=VARCHAR},
+            </if>
+            <if test="auditOptionJson != null">
+                #{auditOptionJson,jdbcType=VARCHAR},
+            </if>
+            <if test="rejectCode != null">
+                #{rejectCode,jdbcType=VARCHAR},
+            </if>
+            <if test="rejectDesc != null">
+                #{rejectDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtAuth != null">
+                #{gmtAuth,jdbcType=TIMESTAMP},
+            </if>
+            <if test="freezeStatus != null">
+                #{freezeStatus,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.xyz.app.entity.MfUserAuthInfo">
+        update MF_USER_AUTH_INFO
+        <set>
+            <if test="realName != null">
+                REAL_NAME = #{realName,jdbcType=VARCHAR},
+            </if>
+            <if test="certType != null">
+                CERT_TYPE = #{certType,jdbcType=VARCHAR},
+            </if>
+            <if test="certNo != null">
+                CERT_NO = #{certNo,jdbcType=VARCHAR},
+            </if>
+            <if test="gender != null">
+                GENDER = #{gender,jdbcType=VARCHAR},
+            </if>
+            <if test="race != null">
+                RACE = #{race,jdbcType=VARCHAR},
+            </if>
+            <if test="issuedBy != null">
+                ISSUED_BY = #{issuedBy,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                EMAIL = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="zipCode != null">
+                ZIP_CODE = #{zipCode,jdbcType=VARCHAR},
+            </if>
+            <if test="country != null">
+                COUNTRY = #{country,jdbcType=VARCHAR},
+            </if>
+            <if test="province != null">
+                PROVINCE = #{province,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                CITY = #{city,jdbcType=VARCHAR},
+            </if>
+            <if test="area != null">
+                AREA = #{area,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                ADDRESS = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="cardAddress != null">
+                CARD_ADDRESS = #{cardAddress,jdbcType=VARCHAR},
+            </if>
+            <if test="registeredCell != null">
+                REGISTERED_CELL = #{registeredCell,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtModified != null">
+                GMT_MODIFIED = #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="memo != null">
+                MEMO = #{memo,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtCreate != null">
+                GMT_CREATE = #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="certValidBeginDate != null">
+                CERT_VALID_BEGIN_DATE = #{certValidBeginDate,jdbcType=VARCHAR},
+            </if>
+            <if test="certValidEndDate != null">
+                CERT_VALID_END_DATE = #{certValidEndDate,jdbcType=VARCHAR},
+            </if>
+            <if test="profession != null">
+                PROFESSION = #{profession,jdbcType=VARCHAR},
+            </if>
+            <if test="certSource != null">
+                CERT_SOURCE = #{certSource,jdbcType=VARCHAR},
+            </if>
+            <if test="certStatus != null">
+                CERT_STATUS = #{certStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="registerFrom != null">
+                REGISTER_FROM = #{registerFrom,jdbcType=VARCHAR},
+            </if>
+            <if test="freezeAmount != null">
+                FREEZE_AMOUNT = #{freezeAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="creditAmount != null">
+                CREDIT_AMOUNT = #{creditAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="creditFee != null">
+                CREDIT_FEE = #{creditFee,jdbcType=DECIMAL},
+            </if>
+            <if test="certScore != null">
+                CERT_SCORE = #{certScore,jdbcType=DECIMAL},
+            </if>
+            <if test="agentPersonName != null">
+                AGENT_PERSON_NAME = #{agentPersonName,jdbcType=VARCHAR},
+            </if>
+            <if test="agentPersonCell != null">
+                AGENT_PERSON_CELL = #{agentPersonCell,jdbcType=VARCHAR},
+            </if>
+            <if test="auditStatus != null">
+                AUDIT_STATUS = #{auditStatus,jdbcType=VARCHAR},
+            </if>
+            <if test="certPosphoto != null">
+                CERT_POSPHOTO = #{certPosphoto,jdbcType=VARCHAR},
+            </if>
+            <if test="certReverphoto != null">
+                CERT_REVERPHOTO = #{certReverphoto,jdbcType=VARCHAR},
+            </if>
+            <if test="certVideo != null">
+                CERT_VIDEO = #{certVideo,jdbcType=VARCHAR},
+            </if>
+            <if test="auditUser != null">
+                AUDIT_USER = #{auditUser,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtAudit != null">
+                GMT_AUDIT = #{gmtAudit,jdbcType=TIMESTAMP},
+            </if>
+            <if test="certLevel != null">
+                CERT_LEVEL = #{certLevel,jdbcType=VARCHAR},
+            </if>
+            <if test="recommendCreditAmount != null">
+                RECOMMEND_CREDIT_AMOUNT = #{recommendCreditAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="recommendCreditFee != null">
+                RECOMMEND_CREDIT_FEE = #{recommendCreditFee,jdbcType=DECIMAL},
+            </if>
+            <if test="auditReson != null">
+                AUDIT_RESON = #{auditReson,jdbcType=VARCHAR},
+            </if>
+            <if test="userdCreditAmount != null">
+                USERD_CREDIT_AMOUNT = #{userdCreditAmount,jdbcType=DECIMAL},
+            </if>
+            <if test="longitude != null">
+                LONGITUDE = #{longitude,jdbcType=VARCHAR},
+            </if>
+            <if test="latitude != null">
+                LATITUDE = #{latitude,jdbcType=VARCHAR},
+            </if>
+            <if test="agentPersonRelation != null">
+                AGENT_PERSON_RELATION = #{agentPersonRelation,jdbcType=VARCHAR},
+            </if>
+            <if test="bodyCertPhoto != null">
+                BODY_CERT_PHOTO = #{bodyCertPhoto,jdbcType=VARCHAR},
+            </if>
+            <if test="auditOptionJson != null">
+                AUDIT_OPTION_JSON = #{auditOptionJson,jdbcType=VARCHAR},
+            </if>
+            <if test="rejectCode != null">
+                REJECT_CODE = #{rejectCode,jdbcType=VARCHAR},
+            </if>
+            <if test="rejectDesc != null">
+                REJECT_DESC = #{rejectDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtAuth != null">
+                GMT_AUTH = #{gmtAuth,jdbcType=TIMESTAMP},
+            </if>
+            <if test="freezeStatus != null">
+                FREEZE_STATUS = #{freezeStatus,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where USER_ID = #{userId,jdbcType=VARCHAR}
+    </update>
+    <select id="selectByWhere" parameterType="com.xyz.app.entity.MfUserAuthInfo" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from MF_USER_AUTH_INFO
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="userId != null">
+                 and USER_ID = #{userId,jdbcType=VARCHAR}
+            </if>
+            <if test="realName != null">
+                 and REAL_NAME = #{realName,jdbcType=VARCHAR}
+            </if>
+            <if test="certType != null">
+                 and CERT_TYPE = #{certType,jdbcType=VARCHAR}
+            </if>
+            <if test="certNo != null">
+                 and CERT_NO = #{certNo,jdbcType=VARCHAR}
+            </if>
+            <if test="gender != null">
+                 and GENDER = #{gender,jdbcType=VARCHAR}
+            </if>
+            <if test="race != null">
+                 and RACE = #{race,jdbcType=VARCHAR}
+            </if>
+            <if test="issuedBy != null">
+                 and ISSUED_BY = #{issuedBy,jdbcType=VARCHAR}
+            </if>
+            <if test="email != null">
+                 and EMAIL = #{email,jdbcType=VARCHAR}
+            </if>
+            <if test="zipCode != null">
+                 and ZIP_CODE = #{zipCode,jdbcType=VARCHAR}
+            </if>
+            <if test="country != null">
+                 and COUNTRY = #{country,jdbcType=VARCHAR}
+            </if>
+            <if test="province != null">
+                 and PROVINCE = #{province,jdbcType=VARCHAR}
+            </if>
+            <if test="city != null">
+                 and CITY = #{city,jdbcType=VARCHAR}
+            </if>
+            <if test="area != null">
+                 and AREA = #{area,jdbcType=VARCHAR}
+            </if>
+            <if test="address != null">
+                 and ADDRESS = #{address,jdbcType=VARCHAR}
+            </if>
+            <if test="cardAddress != null">
+                 and CARD_ADDRESS = #{cardAddress,jdbcType=VARCHAR}
+            </if>
+            <if test="registeredCell != null">
+                 and REGISTERED_CELL = #{registeredCell,jdbcType=VARCHAR}
+            </if>
+            <if test="gmtModified != null">
+                 and GMT_MODIFIED = #{gmtModified,jdbcType=TIMESTAMP}
+            </if>
+            <if test="memo != null">
+                 and MEMO = #{memo,jdbcType=VARCHAR}
+            </if>
+            <if test="gmtCreate != null">
+                 and GMT_CREATE = #{gmtCreate,jdbcType=TIMESTAMP}
+            </if>
+            <if test="certValidBeginDate != null">
+                 and CERT_VALID_BEGIN_DATE = #{certValidBeginDate,jdbcType=VARCHAR}
+            </if>
+            <if test="certValidEndDate != null">
+                 and CERT_VALID_END_DATE = #{certValidEndDate,jdbcType=VARCHAR}
+            </if>
+            <if test="profession != null">
+                 and PROFESSION = #{profession,jdbcType=VARCHAR}
+            </if>
+            <if test="certSource != null">
+                 and CERT_SOURCE = #{certSource,jdbcType=VARCHAR}
+            </if>
+            <if test="certStatus != null">
+                 and CERT_STATUS = #{certStatus,jdbcType=VARCHAR}
+            </if>
+            <if test="registerFrom != null">
+                 and REGISTER_FROM = #{registerFrom,jdbcType=VARCHAR}
+            </if>
+            <if test="freezeAmount != null">
+                 and FREEZE_AMOUNT = #{freezeAmount,jdbcType=DECIMAL}
+            </if>
+            <if test="creditAmount != null">
+                 and CREDIT_AMOUNT = #{creditAmount,jdbcType=DECIMAL}
+            </if>
+            <if test="creditFee != null">
+                 and CREDIT_FEE = #{creditFee,jdbcType=DECIMAL}
+            </if>
+            <if test="certScore != null">
+                 and CERT_SCORE = #{certScore,jdbcType=DECIMAL}
+            </if>
+            <if test="agentPersonName != null">
+                 and AGENT_PERSON_NAME = #{agentPersonName,jdbcType=VARCHAR}
+            </if>
+            <if test="agentPersonCell != null">
+                 and AGENT_PERSON_CELL = #{agentPersonCell,jdbcType=VARCHAR}
+            </if>
+            <if test="auditStatus != null">
+                 and AUDIT_STATUS = #{auditStatus,jdbcType=VARCHAR}
+            </if>
+            <if test="certPosphoto != null">
+                 and CERT_POSPHOTO = #{certPosphoto,jdbcType=VARCHAR}
+            </if>
+            <if test="certReverphoto != null">
+                 and CERT_REVERPHOTO = #{certReverphoto,jdbcType=VARCHAR}
+            </if>
+            <if test="certVideo != null">
+                 and CERT_VIDEO = #{certVideo,jdbcType=VARCHAR}
+            </if>
+            <if test="auditUser != null">
+                 and AUDIT_USER = #{auditUser,jdbcType=VARCHAR}
+            </if>
+            <if test="gmtAudit != null">
+                 and GMT_AUDIT = #{gmtAudit,jdbcType=TIMESTAMP}
+            </if>
+            <if test="certLevel != null">
+                 and CERT_LEVEL = #{certLevel,jdbcType=VARCHAR}
+            </if>
+            <if test="recommendCreditAmount != null">
+                 and RECOMMEND_CREDIT_AMOUNT = #{recommendCreditAmount,jdbcType=DECIMAL}
+            </if>
+            <if test="recommendCreditFee != null">
+                 and RECOMMEND_CREDIT_FEE = #{recommendCreditFee,jdbcType=DECIMAL}
+            </if>
+            <if test="auditReson != null">
+                 and AUDIT_RESON = #{auditReson,jdbcType=VARCHAR}
+            </if>
+            <if test="userdCreditAmount != null">
+                 and USERD_CREDIT_AMOUNT = #{userdCreditAmount,jdbcType=DECIMAL}
+            </if>
+            <if test="longitude != null">
+                 and LONGITUDE = #{longitude,jdbcType=VARCHAR}
+            </if>
+            <if test="latitude != null">
+                 and LATITUDE = #{latitude,jdbcType=VARCHAR}
+            </if>
+            <if test="agentPersonRelation != null">
+                 and AGENT_PERSON_RELATION = #{agentPersonRelation,jdbcType=VARCHAR}
+            </if>
+            <if test="bodyCertPhoto != null">
+                 and BODY_CERT_PHOTO = #{bodyCertPhoto,jdbcType=VARCHAR}
+            </if>
+            <if test="auditOptionJson != null">
+                 and AUDIT_OPTION_JSON = #{auditOptionJson,jdbcType=VARCHAR}
+            </if>
+            <if test="rejectCode != null">
+                 and REJECT_CODE = #{rejectCode,jdbcType=VARCHAR}
+            </if>
+            <if test="rejectDesc != null">
+                 and REJECT_DESC = #{rejectDesc,jdbcType=VARCHAR}
+            </if>
+            <if test="gmtAuth != null">
+                 and GMT_AUTH = #{gmtAuth,jdbcType=TIMESTAMP}
+            </if>
+            <if test="freezeStatus != null">
+                 and FREEZE_STATUS = #{freezeStatus,jdbcType=VARCHAR}
+            </if>
+        </trim>
+    </select>
+</mapper>

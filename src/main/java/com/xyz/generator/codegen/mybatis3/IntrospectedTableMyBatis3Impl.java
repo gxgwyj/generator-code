@@ -283,6 +283,11 @@ public class IntrospectedTableMyBatis3Impl extends IntrospectedTable {
             }
         }
 
+        for (GeneratedXmlFile file : answer){
+            logger.info(file.getFormattedContent());
+        }
+
+
         return answer;
     }
 
@@ -316,5 +321,13 @@ public class IntrospectedTableMyBatis3Impl extends IntrospectedTable {
         } else {
             return javaClientGenerator.requiresXMLGenerator();
         }
+    }
+
+    public static void main(String[] args) {
+        StringBuffer sb = new StringBuffer();
+        for (int i =0;i<100;i++){
+            sb.append(i).append("\n\t");
+        }
+        System.out.println(sb.toString());
     }
 }

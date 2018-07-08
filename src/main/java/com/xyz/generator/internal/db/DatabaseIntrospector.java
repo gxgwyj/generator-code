@@ -29,7 +29,8 @@ import com.xyz.generator.logging.LogFactory;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.Types;
+import java.text.MessageFormat;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -589,14 +590,21 @@ public class DatabaseIntrospector {
         }
 
         ResultSet rs = databaseMetaData.getColumns(localCatalog, localSchema,
-                localTableName, null);
+                localTableName, null);//获取表中所有的列
+
 
         while (rs.next()) {
             IntrospectedColumn introspectedColumn = ObjectFactory
                     .createIntrospectedColumn(context);
 
             introspectedColumn.setTableAlias(tc.getAlias());
-            introspectedColumn.setJdbcType(rs.getInt("DATA_TYPE")); //$NON-NLS-1$
+
+            System.out.println(MessageFormat.format("cloumName={0},typeName={1},COLUMN_SIZE={2},jdbcType={3}",rs.getString("COLUMN_NAME"),rs.getString("TYPE_NAME"),rs.getInt("COLUMN_SIZE"),rs.getInt("DATA_TYPE")+""));
+            if (rs.getString("TYPE_NAME").contains("TIMESTAMP")) {
+                introspectedColumn.setJdbcType(Types.TIMESTAMP);
+            }else{
+                introspectedColumn.setJdbcType(rs.getInt("DATA_TYPE")); //$NON-NLS-1$
+            }
             introspectedColumn.setLength(rs.getInt("COLUMN_SIZE")); //$NON-NLS-1$
             introspectedColumn.setActualColumnName(rs.getString("COLUMN_NAME")); //$NON-NLS-1$
             introspectedColumn
@@ -699,16 +707,16 @@ public class DatabaseIntrospector {
                     tc.getProperty(PropertyRegistry.TABLE_RUNTIME_TABLE_NAME),
                     delimitIdentifiers, context);
 
-            //设置数据库表的备注信息
-            //start
-            Statement stmt = this.databaseMetaData.getConnection().createStatement();
-            ResultSet rs = stmt.executeQuery(new StringBuilder().append("SHOW TABLE STATUS LIKE '").append(atn.getTableName()).append("'").toString());
-            while (rs.next())
-                table.setRemark(rs.getString("COMMENT"));
-
-            closeResultSet(rs);
-            stmt.close();
-            //end
+//            //设置数据库表的备注信息
+//            //start
+//            Statement stmt = this.databaseMetaData.getConnection().createStatement();
+//            ResultSet rs = stmt.executeQuery(new StringBuilder().append("SHOW TABLE STATUS LIKE '").append(atn.getTableName()).append("'").toString());
+//            while (rs.next())
+//                table.setRemark(rs.getString("COMMENT"));
+//
+//            closeResultSet(rs);
+//            stmt.close();
+//            //end
 
             IntrospectedTable introspectedTable = ObjectFactory
                     .createIntrospectedTable(tc, table, context);

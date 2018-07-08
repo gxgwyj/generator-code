@@ -31,11 +31,10 @@ public class MyBatisGeneratorTest {
     public void testGenerateMyBatis3() throws Exception {
         List<String> warnings = new ArrayList<String>();
         ConfigurationParser cp = new ConfigurationParser(warnings);
-        Configuration config = cp.parseConfiguration(this.getClass().getClassLoader().getResourceAsStream("generatorConfig.xml"));
+        Configuration config = cp.parseConfiguration(this.getClass().getClassLoader().getResourceAsStream("generatorConfig-oracle.xml"));
             
         DefaultShellCallback shellCallback = new DefaultShellCallback(true);
 
-        //
         try {
             MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, shellCallback, warnings);
             myBatisGenerator.generate(null);

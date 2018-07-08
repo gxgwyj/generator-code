@@ -53,13 +53,13 @@ public class BaseColumnListElementGenerator extends AbstractXmlElementGenerator 
 
             if (iter.hasNext()) {
                 //修改过的地方
-                sb.append(", "); //$NON-NLS-1$
+                sb.append(",\n\t\t"); //$NON-NLS-1$
             }
 
-            if (sb.length() > 80) {
-                answer.addElement(new TextElement(sb.toString()));
-                sb.setLength(0);
-            }
+//            if (sb.length() > 80) {
+//                answer.addElement(new TextElement(sb.toString()));
+//                sb.setLength(0);
+//            }
         }
 
         if (sb.length() > 0) {
