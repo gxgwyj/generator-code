@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iyi.mf.dao.MfAppMsgInfoMapper">
+    <resultMap id="BaseResultMap" type="com.iyi.mf.pojo.MfAppMsgInfo">
+        <id column="ID" jdbcType="VARCHAR" property="id" />
+        <result column="TITLE" jdbcType="VARCHAR" property="title" />
+        <result column="SUBTITLE" jdbcType="VARCHAR" property="subtitle" />
+        <result column="CONTENT" jdbcType="VARCHAR" property="content" />
+        <result column="USER_ID" jdbcType="VARCHAR" property="userId" />
+        <result column="MSG_TYPE" jdbcType="VARCHAR" property="msgType" />
+        <result column="GMT_CREATE" jdbcType="TIMESTAMP" property="gmtCreate" />
+        <result column="GMT_MODIFIED" jdbcType="TIMESTAMP" property="gmtModified" />
+        <result column="IS_NEW_MSG" jdbcType="VARCHAR" property="isNewMsg" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        ID,
+		TITLE,
+		SUBTITLE,
+		CONTENT,
+		USER_ID,
+		MSG_TYPE,
+		GMT_CREATE,
+		GMT_MODIFIED,
+		IS_NEW_MSG
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from MF_APP_MSG_INFO
+        where ID = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from MF_APP_MSG_INFO
+        where ID = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insertSelective" parameterType="com.iyi.mf.pojo.MfAppMsgInfo">
+        insert into MF_APP_MSG_INFO
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="title != null">
+                TITLE,
+            </if>
+            <if test="subtitle != null">
+                SUBTITLE,
+            </if>
+            <if test="content != null">
+                CONTENT,
+            </if>
+            <if test="userId != null">
+                USER_ID,
+            </if>
+            <if test="msgType != null">
+                MSG_TYPE,
+            </if>
+            <if test="gmtCreate != null">
+                GMT_CREATE,
+            </if>
+            <if test="gmtModified != null">
+                GMT_MODIFIED,
+            </if>
+            <if test="isNewMsg != null">
+                IS_NEW_MSG,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="title != null">
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="subtitle != null">
+                #{subtitle,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null">
+                #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="msgType != null">
+                #{msgType,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtCreate != null">
+                #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtModified != null">
+                #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isNewMsg != null">
+                #{isNewMsg,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.iyi.mf.pojo.MfAppMsgInfo">
+        update MF_APP_MSG_INFO
+        <set>
+            <if test="title != null">
+                TITLE = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="subtitle != null">
+                SUBTITLE = #{subtitle,jdbcType=VARCHAR},
+            </if>
+            <if test="content != null">
+                CONTENT = #{content,jdbcType=VARCHAR},
+            </if>
+            <if test="userId != null">
+                USER_ID = #{userId,jdbcType=VARCHAR},
+            </if>
+            <if test="msgType != null">
+                MSG_TYPE = #{msgType,jdbcType=VARCHAR},
+            </if>
+            <if test="gmtCreate != null">
+                GMT_CREATE = #{gmtCreate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmtModified != null">
+                GMT_MODIFIED = #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isNewMsg != null">
+                IS_NEW_MSG = #{isNewMsg,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=VARCHAR}
+    </update>
+    <select id="selectByWhere" parameterType="com.iyi.mf.pojo.MfAppMsgInfo" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from MF_APP_MSG_INFO
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="id != null">
+                 and ID = #{id,jdbcType=VARCHAR}
+            </if>
+            <if test="title != null">
+                 and TITLE = #{title,jdbcType=VARCHAR}
+            </if>
+            <if test="subtitle != null">
+                 and SUBTITLE = #{subtitle,jdbcType=VARCHAR}
+            </if>
+            <if test="content != null">
+                 and CONTENT = #{content,jdbcType=VARCHAR}
+            </if>
+            <if test="userId != null">
+                 and USER_ID = #{userId,jdbcType=VARCHAR}
+            </if>
+            <if test="msgType != null">
+                 and MSG_TYPE = #{msgType,jdbcType=VARCHAR}
+            </if>
+            <if test="gmtCreate != null">
+                 and GMT_CREATE = #{gmtCreate,jdbcType=TIMESTAMP}
+            </if>
+            <if test="gmtModified != null">
+                 and GMT_MODIFIED = #{gmtModified,jdbcType=TIMESTAMP}
+            </if>
+            <if test="isNewMsg != null">
+                 and IS_NEW_MSG = #{isNewMsg,jdbcType=VARCHAR}
+            </if>
+        </trim>
+    </select>
+</mapper>
