@@ -17,8 +17,12 @@
         </commentGenerator>
 
         <!--数据库连接信息 -->
-        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@10.20.70.204:1521:xfzfdbtest" userId="microfinance"
-                        password="microfinance">
+        <!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@10.20.70.204:1521:xfzfdbtest" userId="microfinance"-->
+                        <!--password="microfinance">-->
+        <!--</jdbcConnection>-->
+
+        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@10.20.70.204:1521:xfzfdbtest" userId="kabao"
+                        password="kabao">
         </jdbcConnection>
 
         <javaTypeResolver>
@@ -42,7 +46,13 @@
         </javaClientGenerator>
 
         <!--对应数据库表名 -->
-        <table tableName="MF_APP_MSG_INFO" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+        <!--<table tableName="MF_APP_MSG_INFO" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >-->
+        <!--</table>-->
+        <table tableName="kb_bonus_group" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+           enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >
+        </table>
+        <table tableName="kb_bonus_detail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >
         </table>
     </context>
