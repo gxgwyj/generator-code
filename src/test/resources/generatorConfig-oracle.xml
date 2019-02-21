@@ -21,8 +21,8 @@
                         <!--password="microfinance">-->
         <!--</jdbcConnection>-->
 
-        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@10.20.70.204:1521:xfzfdbtest" userId="kabao"
-                        password="kabao">
+        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@10.20.70.204:1521:xfzfdbtest" userId="yeahpay"
+                        password="yeahpay">
         </jdbcConnection>
 
         <javaTypeResolver>
@@ -49,10 +49,16 @@
         <!--<table tableName="MF_APP_MSG_INFO" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
                <!--enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >-->
         <!--</table>-->
-        <table tableName="kb_bonus_group" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-           enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >
-        </table>
-        <table tableName="kb_bonus_detail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+        <!--<table tableName="MP_YP_WITHDRAW_ORDER" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >-->
+        <!--</table>-->
+        <!--<table tableName="MP_YP_RECHARGE_ORDER" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >-->
+        <!--</table>-->
+        <!--<table tableName="MP_YP_BANK_CARD_CONTRACT" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >-->
+        <!--</table>-->
+        <table tableName="MP_YP_SECURITY_CONFIG" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >
         </table>
     </context>
