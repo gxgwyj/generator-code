@@ -49,17 +49,17 @@
         <!--<table tableName="MF_APP_MSG_INFO" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
                <!--enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >-->
         <!--</table>-->
-        <!--<table tableName="MP_YP_WITHDRAW_ORDER" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
-               <!--enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >-->
-        <!--</table>-->
-        <!--<table tableName="MP_YP_RECHARGE_ORDER" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
-               <!--enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >-->
-        <!--</table>-->
+        <table tableName="MP_YP_WITHDRAW_ORDER" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >
+        </table>
+        <table tableName="MP_YP_RECHARGE_ORDER" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >
+        </table>
         <!--<table tableName="MP_YP_BANK_CARD_CONTRACT" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
                <!--enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >-->
         <!--</table>-->
-        <table tableName="MP_YP_SECURITY_CONFIG" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >
-        </table>
+        <!--<table tableName="mp_yp_app_config" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >-->
+        <!--</table>-->
     </context>
 </generatorConfiguration>
