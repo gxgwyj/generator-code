@@ -1,0 +1,50 @@
+    /**
+     * 商户code
+     */
+     private String merchantCode;
+
+    /**
+     * 产品code
+     */
+     private String productCode;
+
+    /**
+     * 申请单号
+     */
+     private String applyNo;
+
+    /**
+     * 第几期
+     */
+     private Integer periodIndex;
+
+    /**
+     * 还款总金额
+     */
+     private BigDecimal repayAmount;
+
+    /**
+     * 还款本金
+     */
+     private BigDecimal repayPrincipal;
+
+    /**
+     * 利息总额
+     */
+     private BigDecimal repayInterest;
+
+    /**
+     * 本金罚息总额
+     */
+     private BigDecimal repayOverdue;
+
+    /**
+     * 利息罚息总额
+     */
+     private BigDecimal repayInterestOverdue;
+
+    /**
+     * 服务费总额
+     */
+     private BigDecimal repayService;
+

@@ -17,13 +17,13 @@
         </commentGenerator>
 
         <!--数据库连接信息 -->
-        <!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@10.20.70.204:1521:xfzfdbtest" userId="microfinance"-->
-                        <!--password="microfinance">-->
-        <!--</jdbcConnection>-->
-
-        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@10.20.70.204:1521:xfzfdbtest" userId="yeahpay"
-                        password="yeahpay">
+        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@10.20.70.204:1521:xfzfdbtest" userId="microfinance"
+                        password="microfinance">
         </jdbcConnection>
+
+        <!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@10.20.70.204:1521:xfzfdbtest" userId="yeahpay"-->
+                        <!--password="yeahpay">-->
+        <!--</jdbcConnection>-->
 
         <javaTypeResolver>
             <property name="forceBigDecimals" value="true" />
@@ -46,19 +46,16 @@
         </javaClientGenerator>
 
         <!--对应数据库表名 -->
-        <!--<table tableName="MF_APP_MSG_INFO" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+        <!--<table tableName="MF_DEBTS_REPAYMENT_DETAIL" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
                <!--enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >-->
         <!--</table>-->
-        <table tableName="MP_YP_WITHDRAW_ORDER" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >
-        </table>
-        <table tableName="MP_YP_RECHARGE_ORDER" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >
-        </table>
-        <!--<table tableName="MP_YP_BANK_CARD_CONTRACT" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+        <!--<table tableName="MF_DEBTS_SETTLE" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
                <!--enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >-->
         <!--</table>-->
-        <!--<table tableName="mp_yp_app_config" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+        <table tableName="MF_DEBTS_SETTLE" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >
+        </table>
+        <!--<table tableName="MF_DEBTS_COMPENSATION" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
                <!--enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >-->
         <!--</table>-->
     </context>
