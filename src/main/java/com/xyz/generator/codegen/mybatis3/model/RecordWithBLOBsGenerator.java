@@ -46,7 +46,7 @@ public class RecordWithBLOBsGenerator extends AbstractJavaGenerator {
     public List<CompilationUnit> getCompilationUnits() {
         FullyQualifiedTable table = introspectedTable.getFullyQualifiedTable();
         progressCallback.startTask(Messages.getString(
-                "Progress.9", table.toString())); //$NON-NLS-1$
+                "Progress.9", table.toString()));
         Plugin plugins = context.getPlugins();
         CommentGenerator commentGenerator = context.getCommentGenerator();
 
@@ -127,11 +127,11 @@ public class RecordWithBLOBsGenerator extends AbstractJavaGenerator {
         
         boolean comma = false;
         StringBuilder sb = new StringBuilder();
-        sb.append("super("); //$NON-NLS-1$
+        sb.append("super(");
         for (IntrospectedColumn introspectedColumn : introspectedTable
                 .getNonBLOBColumns()) {
             if (comma) {
-                sb.append(", "); //$NON-NLS-1$
+                sb.append(", ");
             } else {
                 comma = true;
             }

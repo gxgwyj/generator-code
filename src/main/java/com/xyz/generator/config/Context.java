@@ -688,7 +688,7 @@ public class Context extends PropertyHolder {
             if (plugin.validate(warnings)) {
                 pluginAggregator.addPlugin(plugin);
             } else {
-                warnings.add(Messages.getString("Warning.24", //$NON-NLS-1$
+                warnings.add(Messages.getString("Warning.24",
                         pluginConfiguration.getConfigurationType(), id));
             }
         }

@@ -128,8 +128,11 @@ public abstract class IntrospectedTable {
         /** The attr update by example selective statement id. */
         ATTR_UPDATE_BY_EXAMPLE_SELECTIVE_STATEMENT_ID,
 
-        //新加的
+        //条件查询列表
         ATTR_SELECT_BY_WHERE_STATEMENT_ID,
+
+        // 批量插入方法
+        ATTR_INSERT_BATCH_STATEMENT_ID,
 
         /** The attr update by example with blobs statement id. */
         ATTR_UPDATE_BY_EXAMPLE_WITH_BLOBS_STATEMENT_ID,
@@ -774,27 +777,27 @@ public abstract class IntrospectedTable {
         setSqlMapFullyQualifiedRuntimeTableName(calculateSqlMapFullyQualifiedRuntimeTableName());
         setSqlMapAliasedFullyQualifiedRuntimeTableName(calculateSqlMapAliasedFullyQualifiedRuntimeTableName());
 
-        setCountByExampleStatementId("countByExample"); //$NON-NLS-1$
-        setDeleteByExampleStatementId("deleteByExample"); //$NON-NLS-1$
-        setDeleteByPrimaryKeyStatementId("deleteByPrimaryKey"); //$NON-NLS-1$
-        setInsertStatementId("insert"); //$NON-NLS-1$
-        setInsertSelectiveStatementId("insertSelective"); //$NON-NLS-1$
-        setSelectAllStatementId("selectAll"); //$NON-NLS-1$
-        setSelectByExampleStatementId("selectByExample"); //$NON-NLS-1$
-        setSelectByExampleWithBLOBsStatementId("selectByExampleWithBLOBs"); //$NON-NLS-1$
-        setSelectByPrimaryKeyStatementId("selectByPrimaryKey"); //$NON-NLS-1$
-        setUpdateByExampleStatementId("updateByExample"); //$NON-NLS-1$
-        setUpdateByExampleSelectiveStatementId("updateByExampleSelective"); //$NON-NLS-1$
-        setUpdateByExampleWithBLOBsStatementId("updateByExampleWithBLOBs"); //$NON-NLS-1$
-        setUpdateByPrimaryKeyStatementId("updateByPrimaryKey"); //$NON-NLS-1$
-        setUpdateByPrimaryKeySelectiveStatementId("updateByPrimaryKeySelective"); //$NON-NLS-1$
-        setUpdateByPrimaryKeyWithBLOBsStatementId("updateByPrimaryKeyWithBLOBs"); //$NON-NLS-1$
-        setBaseResultMapId("BaseResultMap"); //$NON-NLS-1$
-        setResultMapWithBLOBsId("ResultMapWithBLOBs"); //$NON-NLS-1$
-        setExampleWhereClauseId("Example_Where_Clause"); //$NON-NLS-1$
-        setBaseColumnListId("Base_Column_List"); //$NON-NLS-1$
-        setBlobColumnListId("Blob_Column_List"); //$NON-NLS-1$
-        setMyBatis3UpdateByExampleWhereClauseId("Update_By_Example_Where_Clause"); //$NON-NLS-1$
+        setCountByExampleStatementId("countByExample");
+        setDeleteByExampleStatementId("deleteByExample");
+        setDeleteByPrimaryKeyStatementId("deleteByPrimaryKey");
+        setInsertStatementId("insert");
+        setInsertSelectiveStatementId("insertSelective");
+        setSelectAllStatementId("selectAll");
+        setSelectByExampleStatementId("selectByExample");
+        setSelectByExampleWithBLOBsStatementId("selectByExampleWithBLOBs");
+        setSelectByPrimaryKeyStatementId("selectByPrimaryKey");
+        setUpdateByExampleStatementId("updateByExample");
+        setUpdateByExampleSelectiveStatementId("updateByExampleSelective");
+        setUpdateByExampleWithBLOBsStatementId("updateByExampleWithBLOBs");
+        setUpdateByPrimaryKeyStatementId("updateByPrimaryKey");
+        setUpdateByPrimaryKeySelectiveStatementId("updateByPrimaryKeySelective");
+        setUpdateByPrimaryKeyWithBLOBsStatementId("updateByPrimaryKeyWithBLOBs");
+        setBaseResultMapId("BaseResultMap");
+        setResultMapWithBLOBsId("ResultMapWithBLOBs");
+        setExampleWhereClauseId("Example_Where_Clause");
+        setBaseColumnListId("Base_Column_List");
+        setBlobColumnListId("Blob_Column_List");
+        setMyBatis3UpdateByExampleWhereClauseId("Update_By_Example_Where_Clause");
         setSelectByWhereStatementId("selectByWhere");
     }
 

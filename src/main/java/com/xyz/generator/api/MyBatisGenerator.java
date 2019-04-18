@@ -60,7 +60,7 @@ public class MyBatisGenerator {
                             List<String> warnings) throws InvalidConfigurationException {
         super();
         if (configuration == null) {
-            throw new IllegalArgumentException(Messages.getString("RuntimeError.2")); //$NON-NLS-1$
+            throw new IllegalArgumentException(Messages.getString("RuntimeError.2"));
         } else {
             this.configuration = configuration;
         }
@@ -180,14 +180,14 @@ public class MyBatisGenerator {
                                 targetFile);
                     } else if (shellCallback.isOverwriteEnabled()) {
                         source = gxf.getFormattedContent();
-                        warnings.add(Messages.getString("Warning.11", //$NON-NLS-1$
+                        warnings.add(Messages.getString(
                                 targetFile.getAbsolutePath()));
                     } else {
                         source = gxf.getFormattedContent();
                         targetFile = getUniqueFileName(directory, gxf
                                 .getFileName());
                         warnings.add(Messages.getString(
-                                "Warning.2", targetFile.getAbsolutePath())); //$NON-NLS-1$
+                                "Warning.2", targetFile.getAbsolutePath()));
                     }
                 } else {
                     source = gxf.getFormattedContent();
@@ -199,8 +199,8 @@ public class MyBatisGenerator {
 
             callback.checkCancel();
             callback.startTask(Messages.getString(
-                    "Progress.15", targetFile.getName())); //$NON-NLS-1$
-            writeFile(targetFile, source, "UTF-8"); //$NON-NLS-1$
+                    "Progress.15", targetFile.getName()));
+            writeFile(targetFile, source, "UTF-8");
         }
 
         for (GeneratedJavaFile gjf : generatedJavaFiles) {
@@ -221,14 +221,14 @@ public class MyBatisGenerator {
                                 gjf.getFileEncoding());
                     } else if (shellCallback.isOverwriteEnabled()) {
                         source = gjf.getFormattedContent();
-                        warnings.add(Messages.getString("Warning.11", //$NON-NLS-1$
+                        warnings.add(Messages.getString("Warning.11",
                                 targetFile.getAbsolutePath()));
                     } else {
                         source = gjf.getFormattedContent();
                         targetFile = getUniqueFileName(directory, gjf
                                 .getFileName());
                         warnings.add(Messages.getString(
-                                "Warning.2", targetFile.getAbsolutePath())); //$NON-NLS-1$
+                                "Warning.2", targetFile.getAbsolutePath()));
                     }
                 } else {
                     source = gjf.getFormattedContent();
@@ -236,7 +236,7 @@ public class MyBatisGenerator {
 
                 callback.checkCancel();
                 callback.startTask(Messages.getString(
-                        "Progress.15", targetFile.getName())); //$NON-NLS-1$
+                        "Progress.15", targetFile.getName()));
 //                writeFile(targetFile, source, gjf.getFileEncoding());
                 writeFile(targetFile, source, "UTF-8");
             } catch (ShellException e) {
@@ -285,7 +285,7 @@ public class MyBatisGenerator {
 
         if (answer == null) {
             throw new RuntimeException(Messages.getString(
-                    "RuntimeError.3", directory.getAbsolutePath())); //$NON-NLS-1$
+                    "RuntimeError.3", directory.getAbsolutePath()));
         }
 
         return answer;

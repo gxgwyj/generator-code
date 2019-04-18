@@ -39,7 +39,7 @@ public abstract class AbstractJavaGenerator extends AbstractGenerator {
         method.setReturnType(field.getType());
         method.setVisibility(JavaVisibility.PUBLIC);
         StringBuilder sb = new StringBuilder();
-        sb.append("return "); //$NON-NLS-1$
+        sb.append("return ");
         sb.append(field.getName());
         sb.append(';');
         method.addBodyLine(sb.toString());

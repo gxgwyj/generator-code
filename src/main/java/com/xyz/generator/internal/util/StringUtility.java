@@ -59,7 +59,7 @@ public class StringUtility {
     }
 
     public static boolean isTrue(String s) {
-        return "true".equalsIgnoreCase(s); //$NON-NLS-1$
+        return "true".equalsIgnoreCase(s);
     }
 
 

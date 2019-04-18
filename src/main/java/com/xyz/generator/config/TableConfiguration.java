@@ -44,6 +44,8 @@ public class TableConfiguration extends PropertyHolder{
     //新加的生成代码属性
     private boolean selectByWhereStatementEnabled;
 
+    // 新加的批量插入属性
+    private boolean insertBatchStatementEnabled;
 
     private List<ColumnOverride> columnOverrides;
 
@@ -101,6 +103,8 @@ public class TableConfiguration extends PropertyHolder{
         selectByWhereStatementEnabled = true;
         insertSelectiveStatementEnabled = true;
         updateSelectiveByPrimaryKeyStatementEnabled = true;
+        // 批量插入标签
+        insertBatchStatementEnabled = true;
     }
 
     public boolean isDeleteByPrimaryKeyStatementEnabled() {
@@ -262,6 +266,7 @@ public class TableConfiguration extends PropertyHolder{
                 || updateByExampleStatementEnabled
                 || selectByWhereStatementEnabled
                 || insertSelectiveStatementEnabled
+                || selectByWhereStatementEnabled
                 || updateSelectiveByPrimaryKeyStatementEnabled;
     }
 
@@ -361,63 +366,63 @@ public class TableConfiguration extends PropertyHolder{
 
 
     public XmlElement toXmlElement() {
-        XmlElement xmlElement = new XmlElement("table"); //$NON-NLS-1$
-        xmlElement.addAttribute(new Attribute("tableName", tableName)); //$NON-NLS-1$
+        XmlElement xmlElement = new XmlElement("table");
+        xmlElement.addAttribute(new Attribute("tableName", tableName));
 
         if (StringUtility.stringHasValue(catalog)) {
-            xmlElement.addAttribute(new Attribute("catalog", catalog)); //$NON-NLS-1$
+            xmlElement.addAttribute(new Attribute("catalog", catalog));
         }
 
         if (StringUtility.stringHasValue(schema)) {
-            xmlElement.addAttribute(new Attribute("schema", schema)); //$NON-NLS-1$
+            xmlElement.addAttribute(new Attribute("schema", schema));
         }
 
         if (StringUtility.stringHasValue(alias)) {
-            xmlElement.addAttribute(new Attribute("alias", alias)); //$NON-NLS-1$
+            xmlElement.addAttribute(new Attribute("alias", alias));
         }
 
         if (StringUtility.stringHasValue(domainObjectName)) {
             xmlElement.addAttribute(new Attribute(
-                    "domainObjectName", domainObjectName)); //$NON-NLS-1$
+                    "domainObjectName", domainObjectName));
         }
 
         if (!insertStatementEnabled) {
-            xmlElement.addAttribute(new Attribute("enableInsert", "false")); //$NON-NLS-1$ //$NON-NLS-2$
+            xmlElement.addAttribute(new Attribute("enableInsert", "false"));
         }
 
         if (!selectByPrimaryKeyStatementEnabled) {
             xmlElement.addAttribute(new Attribute(
-                    "enableSelectByPrimaryKey", "false")); //$NON-NLS-1$ //$NON-NLS-2$
+                    "enableSelectByPrimaryKey", "false"));
         }
 
         if (!selectByExampleStatementEnabled) {
             xmlElement.addAttribute(new Attribute(
-                    "enableSelectByExample", "false")); //$NON-NLS-1$ //$NON-NLS-2$
+                    "enableSelectByExample", "false"));
         }
 
         if (!updateByPrimaryKeyStatementEnabled) {
             xmlElement.addAttribute(new Attribute(
-                    "enableUpdateByPrimaryKey", "false")); //$NON-NLS-1$ //$NON-NLS-2$
+                    "enableUpdateByPrimaryKey", "false"));
         }
 
         if (!deleteByPrimaryKeyStatementEnabled) {
             xmlElement.addAttribute(new Attribute(
-                    "enableDeleteByPrimaryKey", "false")); //$NON-NLS-1$ //$NON-NLS-2$
+                    "enableDeleteByPrimaryKey", "false"));
         }
 
         if (!deleteByExampleStatementEnabled) {
             xmlElement.addAttribute(new Attribute(
-                    "enableDeleteByExample", "false")); //$NON-NLS-1$ //$NON-NLS-2$
+                    "enableDeleteByExample", "false"));
         }
 
         if (!countByExampleStatementEnabled) {
             xmlElement.addAttribute(new Attribute(
-                    "enableCountByExample", "false")); //$NON-NLS-1$ //$NON-NLS-2$
+                    "enableCountByExample", "false"));
         }
 
         if (!updateByExampleStatementEnabled) {
             xmlElement.addAttribute(new Attribute(
-                    "enableUpdateByExample", "false")); //$NON-NLS-1$ //$NON-NLS-2$
+                    "enableUpdateByExample", "false"));
         }
 
         if (!selectByWhereStatementEnabled) {
@@ -437,40 +442,40 @@ public class TableConfiguration extends PropertyHolder{
 
         if (StringUtility.stringHasValue(selectByPrimaryKeyQueryId)) {
             xmlElement.addAttribute(new Attribute(
-                    "selectByPrimaryKeyQueryId", selectByPrimaryKeyQueryId)); //$NON-NLS-1$
+                    "selectByPrimaryKeyQueryId", selectByPrimaryKeyQueryId));
         }
 
         if (StringUtility.stringHasValue(selectByExampleQueryId)) {
             xmlElement.addAttribute(new Attribute(
-                    "selectByExampleQueryId", selectByExampleQueryId)); //$NON-NLS-1$
+                    "selectByExampleQueryId", selectByExampleQueryId));
         }
 
         if (configuredModelType != null) {
             xmlElement.addAttribute(new Attribute(
-                    "modelType", configuredModelType)); //$NON-NLS-1$
+                    "modelType", configuredModelType));
         }
 
         if (wildcardEscapingEnabled) {
-            xmlElement.addAttribute(new Attribute("escapeWildcards", "true")); //$NON-NLS-1$ //$NON-NLS-2$
+            xmlElement.addAttribute(new Attribute("escapeWildcards", "true"));
         }
 
         if (isAllColumnDelimitingEnabled) {
-            xmlElement.addAttribute(new Attribute("delimitAllColumns", "true")); //$NON-NLS-1$ //$NON-NLS-2$
+            xmlElement.addAttribute(new Attribute("delimitAllColumns", "true"));
         }
 
         if (delimitIdentifiers) {
             xmlElement
-                    .addAttribute(new Attribute("delimitIdentifiers", "true")); //$NON-NLS-1$ //$NON-NLS-2$
+                    .addAttribute(new Attribute("delimitIdentifiers", "true"));
         }
 
         if (StringUtility.stringHasValue(mapperName)) {
             xmlElement.addAttribute(new Attribute(
-                    "mapperName", mapperName)); //$NON-NLS-1$
+                    "mapperName", mapperName));
         }
 
         if (StringUtility.stringHasValue(sqlProviderName)) {
             xmlElement.addAttribute(new Attribute(
-                    "sqlProviderName", sqlProviderName)); //$NON-NLS-1$
+                    "sqlProviderName", sqlProviderName));
         }
 
         addPropertyXmlElements(xmlElement);
@@ -536,7 +541,7 @@ public class TableConfiguration extends PropertyHolder{
     public void validate(List<String> errors, int listPosition) {
         if (!StringUtility.stringHasValue(tableName)) {
             errors.add(Messages.getString(
-                    "ValidationError.6", Integer.toString(listPosition))); //$NON-NLS-1$
+                    "ValidationError.6", Integer.toString(listPosition)));
         }
 
         String fqTableName = StringUtility.composeFullyQualifiedTableName(
@@ -555,7 +560,7 @@ public class TableConfiguration extends PropertyHolder{
                 boolean queryId2Set = StringUtility.stringHasValue(selectByPrimaryKeyQueryId);
 
                 if (queryId1Set != queryId2Set) {
-                    errors.add(Messages.getString("ValidationError.13", //$NON-NLS-1$
+                    errors.add(Messages.getString("ValidationError.13",
                             fqTableName));
                 }
             }
@@ -633,5 +638,13 @@ public class TableConfiguration extends PropertyHolder{
 
     public void setUpdateSelectiveByPrimaryKeyStatementEnabled(boolean updateSelectiveByPrimaryKeyStatementEnabled) {
         this.updateSelectiveByPrimaryKeyStatementEnabled = updateSelectiveByPrimaryKeyStatementEnabled;
+    }
+
+    public boolean isInsertBatchStatementEnabled() {
+        return insertBatchStatementEnabled;
+    }
+
+    public void setInsertBatchStatementEnabled(boolean insertBatchStatementEnabled) {
+        this.insertBatchStatementEnabled = insertBatchStatementEnabled;
     }
 }

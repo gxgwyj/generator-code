@@ -46,7 +46,7 @@ public class PrimaryKeyGenerator extends AbstractJavaGenerator {
     public List<CompilationUnit> getCompilationUnits() {
         FullyQualifiedTable table = introspectedTable.getFullyQualifiedTable();
         progressCallback.startTask(Messages.getString(
-                "Progress.7", table.toString())); //$NON-NLS-1$
+                "Progress.7", table.toString()));
         Plugin plugins = context.getPlugins();
         CommentGenerator commentGenerator = context.getCommentGenerator();
 

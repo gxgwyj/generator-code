@@ -118,7 +118,8 @@ public class ConfigurationParser {
 
         try {
             DocumentBuilder builder = factory.newDocumentBuilder();
-            builder.setEntityResolver(new ParserEntityResolver());// 设置xml DTD 验证
+            // 设置xml DTD 验证
+            builder.setEntityResolver(new ParserEntityResolver());
 
 
             ParserErrorHandler handler = new ParserErrorHandler(warnings,
@@ -145,7 +146,8 @@ public class ConfigurationParser {
             }
 
             Configuration config;
-            Element rootNode = document.getDocumentElement();//获得xml的根节点
+            //获得xml的根节点
+            Element rootNode = document.getDocumentElement();
             DocumentType docType = document.getDoctype();
             if (rootNode.getNodeType() == Node.ELEMENT_NODE
                     && docType.getPublicId().equals(
@@ -156,7 +158,7 @@ public class ConfigurationParser {
                             XmlConstants.MYBATIS_GENERATOR_CONFIG_PUBLIC_ID)) {
                 config = parseMyBatisGeneratorConfiguration(rootNode);
             } else {
-                throw new XMLParserException(Messages.getString("RuntimeError.5")); //$NON-NLS-1$
+                throw new XMLParserException(Messages.getString("RuntimeError.5"));
             }
 
             if (parseErrors.size() > 0) {
@@ -188,11 +190,12 @@ public class ConfigurationParser {
         TransformerFactory tf   =   TransformerFactory.newInstance();
         try {
             Transformer t = tf.newTransformer();
-            t.setOutputProperty("encoding","UTF-8");//解决中文问题，试过用GBK不行
+            //解决中文问题，试过用GBK不行
+            t.setOutputProperty("encoding","UTF-8");
             ByteArrayOutputStream   bos   =   new   ByteArrayOutputStream();
             t.transform(new DOMSource(document), new StreamResult(bos));
             String xmlStr = bos.toString();
-            logger.info("读取到的mybatis生成代码配置文件：\n"+xmlStr);
+            logger.info("读取到的mybatis生成代码配置文件：\n" + xmlStr);
         } catch (TransformerConfigurationException e){
             e.printStackTrace();
         } catch (TransformerException e) {
