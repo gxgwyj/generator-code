@@ -160,7 +160,6 @@ public class RulesDelegate implements Rules {
         return rules.getIntrospectedTable();
     }
 
-    @Override
     public boolean generateSelectByWhere() {
         return rules.generateSelectByWhere();
     }
