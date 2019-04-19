@@ -41,7 +41,7 @@ public class SelectByWhereElementGenerator extends
 
 
         sb.setLength(0);
-        sb.append("from "); //$NON-NLS-1$
+        sb.append("from ");
         sb.append(introspectedTable
                 .getAliasedFullyQualifiedTableNameAtRuntime());
         answer.addElement(new TextElement(sb.toString()));
@@ -56,7 +56,7 @@ public class SelectByWhereElementGenerator extends
 
         for (IntrospectedColumn introspectedColumn : introspectedTable.getAllColumns()){
 
-            XmlElement ifElement = new XmlElement("if"); //$NON-NLS-1$
+            XmlElement ifElement = new XmlElement("if");
             sb.setLength(0);
             sb.append(introspectedColumn.getJavaProperty()).append(" != null");
             ifElement.addAttribute(new Attribute("test", sb.toString()));

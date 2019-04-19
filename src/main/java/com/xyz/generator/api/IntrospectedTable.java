@@ -28,6 +28,7 @@ import java.util.*;
  * Base class for all code generator implementations. This class provides many
  * of the housekeeping methods needed to implement a code generator, with only
  * the actual code generation methods left unimplemented.
+ * 所有代码生成器实现的基类
  *
  * @author Jeff Butler
  *
@@ -799,6 +800,7 @@ public abstract class IntrospectedTable {
         setBlobColumnListId("Blob_Column_List");
         setMyBatis3UpdateByExampleWhereClauseId("Update_By_Example_Where_Clause");
         setSelectByWhereStatementId("selectByWhere");
+        setInsertBatchStatementId("insertBatch");
     }
 
     /**
@@ -937,6 +939,17 @@ public abstract class IntrospectedTable {
         internalAttributes
                 .put(
                         InternalAttribute.ATTR_SELECT_BY_WHERE_STATEMENT_ID,
+                        s);
+    }
+
+    /**
+     * 批量插入数据
+     * @param s
+     */
+    public void setInsertBatchStatementId(String s) {
+        internalAttributes
+                .put(
+                        InternalAttribute.ATTR_INSERT_BATCH_STATEMENT_ID,
                         s);
     }
 
@@ -1261,10 +1274,22 @@ public abstract class IntrospectedTable {
                 .get(InternalAttribute.ATTR_COUNT_BY_EXAMPLE_STATEMENT_ID);
     }
 
-    //新加的
+    /**
+     * 条件查询列表
+     * @return
+     */
     public String getSelectByWhereStatementId() {
         return internalAttributes
                 .get(InternalAttribute.ATTR_SELECT_BY_WHERE_STATEMENT_ID);
+    }
+
+    /**
+     * 批量插入
+     * @return
+     */
+    public String getInserBatchStatementId() {
+        return internalAttributes
+                .get(InternalAttribute.ATTR_INSERT_BATCH_STATEMENT_ID);
     }
 
     /**
@@ -1334,14 +1359,14 @@ public abstract class IntrospectedTable {
         sb.append(calculateJavaClientImplementationPackage());
         sb.append('.');
         sb.append(fullyQualifiedTable.getDomainObjectName());
-        sb.append("DAOImpl"); //$NON-NLS-1$
+        sb.append("DAOImpl");
         setDAOImplementationType(sb.toString());
 
         sb.setLength(0);
         sb.append(calculateJavaClientInterfacePackage());
         sb.append('.');
         sb.append(fullyQualifiedTable.getDomainObjectName());
-        sb.append("DAO"); //$NON-NLS-1$
+        sb.append("DAO");
         setDAOInterfaceType(sb.toString());
 
         sb.setLength(0);
@@ -1351,7 +1376,7 @@ public abstract class IntrospectedTable {
             sb.append(tableConfiguration.getMapperName());
         } else {
             sb.append(fullyQualifiedTable.getDomainObjectName());
-            sb.append("Mapper"); //$NON-NLS-1$
+            sb.append("Mapper");
         }
         setMyBatis3JavaMapperType(sb.toString());
 
@@ -1362,7 +1387,7 @@ public abstract class IntrospectedTable {
             sb.append(tableConfiguration.getSqlProviderName());
         } else {
             sb.append(fullyQualifiedTable.getDomainObjectName());
-            sb.append("SqlProvider"); //$NON-NLS-1$
+            sb.append("SqlProvider");
         }
         setMyBatis3SqlProviderType(sb.toString());
     }

@@ -331,23 +331,23 @@ public class Context extends PropertyHolder {
      * @return the XML representation of this context
      */
     public XmlElement toXmlElement() {
-        XmlElement xmlElement = new XmlElement("context"); //$NON-NLS-1$
+        XmlElement xmlElement = new XmlElement("context");
         
-        xmlElement.addAttribute(new Attribute("id", id)); //$NON-NLS-1$
+        xmlElement.addAttribute(new Attribute("id", id));
         
         if (defaultModelType != ModelType.CONDITIONAL) {
             xmlElement.addAttribute(new Attribute(
-                    "defaultModelType", defaultModelType.getModelType())); //$NON-NLS-1$
+                    "defaultModelType", defaultModelType.getModelType()));
         }
 
         if (StringUtility.stringHasValue(introspectedColumnImpl)) {
             xmlElement.addAttribute(new Attribute(
-                    "introspectedColumnImpl", introspectedColumnImpl)); //$NON-NLS-1$
+                    "introspectedColumnImpl", introspectedColumnImpl));
         }
 
         if (StringUtility.stringHasValue(targetRuntime)) {
             xmlElement.addAttribute(new Attribute(
-                    "targetRuntime", targetRuntime)); //$NON-NLS-1$
+                    "targetRuntime", targetRuntime));
         }
 
         addPropertyXmlElements(xmlElement);

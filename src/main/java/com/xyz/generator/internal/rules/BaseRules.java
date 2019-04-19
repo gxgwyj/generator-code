@@ -467,12 +467,31 @@ public abstract class BaseRules implements Rules {
         return !isModelOnly;
     }
 
+    /**
+     * 条件查询列表
+     * @return
+     */
     public boolean generateSelectByWhere(){
         if (isModelOnly) {
             return false;
         }
 
         boolean rc = tableConfiguration.isSelectByWhereStatementEnabled();
+
+        return rc;
+    }
+
+    /**
+     * 批量插入
+     * @return
+     */
+    @Override
+    public boolean generateInsertBatch() {
+        if (isModelOnly) {
+            return false;
+        }
+
+        boolean rc = tableConfiguration.isInsertBatchStatementEnabled();
 
         return rc;
     }

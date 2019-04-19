@@ -63,7 +63,7 @@ public abstract class AbstractJavaGenerator extends AbstractGenerator {
         method.setVisibility(JavaVisibility.PUBLIC);
         method.setConstructor(true);
         method.setName(topLevelClass.getType().getShortName());
-        method.addBodyLine("super();"); //$NON-NLS-1$
+        method.addBodyLine("super();");
         context.getCommentGenerator().addGeneralMethodComment(method, introspectedTable);
         topLevelClass.addMethod(method);
     }

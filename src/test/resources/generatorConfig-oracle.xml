@@ -17,7 +17,7 @@
         </commentGenerator>
 
         <!--数据库连接信息 -->
-        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@10.20.70.204:1521:xfzfdbtest" userId="microfinance"
+        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@10.20.70.203:1521:xfzfdbtest" userId="microfinance"
                         password="microfinance">
         </jdbcConnection>
 
@@ -52,11 +52,11 @@
         <!--<table tableName="MF_DEBTS_SETTLE" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
                <!--enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >-->
         <!--</table>-->
-        <table tableName="MF_DEBTS_SETTLE" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >
-        </table>
         <!--<table tableName="MF_DEBTS_COMPENSATION" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
                <!--enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >-->
         <!--</table>-->
+        <table tableName="MF_DEBTS_COMPENSATION_TASK" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >
+        </table>
     </context>
 </generatorConfiguration>

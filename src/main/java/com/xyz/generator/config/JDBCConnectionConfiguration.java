@@ -75,16 +75,16 @@ public class JDBCConnectionConfiguration extends PropertyHolder {
     }
 
     public XmlElement toXmlElement() {
-        XmlElement xmlElement = new XmlElement("jdbcConnection"); //$NON-NLS-1$
-        xmlElement.addAttribute(new Attribute("driverClass", driverClass)); //$NON-NLS-1$
-        xmlElement.addAttribute(new Attribute("connectionURL", connectionURL)); //$NON-NLS-1$
+        XmlElement xmlElement = new XmlElement("jdbcConnection");
+        xmlElement.addAttribute(new Attribute("driverClass", driverClass));
+        xmlElement.addAttribute(new Attribute("connectionURL", connectionURL));
 
         if (StringUtility.stringHasValue(userId)) {
-            xmlElement.addAttribute(new Attribute("userId", userId)); //$NON-NLS-1$
+            xmlElement.addAttribute(new Attribute("userId", userId));
         }
 
         if (StringUtility.stringHasValue(password)) {
-            xmlElement.addAttribute(new Attribute("password", password)); //$NON-NLS-1$
+            xmlElement.addAttribute(new Attribute("password", password));
         }
 
         addPropertyXmlElements(xmlElement);
@@ -94,11 +94,11 @@ public class JDBCConnectionConfiguration extends PropertyHolder {
 
     public void validate(List<String> errors) {
         if (!StringUtility.stringHasValue(driverClass)) {
-            errors.add(Messages.getString("ValidationError.4")); //$NON-NLS-1$
+            errors.add(Messages.getString("ValidationError.4"));
         }
 
         if (!StringUtility.stringHasValue(connectionURL)) {
-            errors.add(Messages.getString("ValidationError.5")); //$NON-NLS-1$
+            errors.add(Messages.getString("ValidationError.5"));
         }
     }
 }

@@ -47,22 +47,27 @@ public final class PluginAggregator implements Plugin {
         plugins = new ArrayList<Plugin>();
     }
 
+
     public void addPlugin(Plugin plugin) {
         plugins.add(plugin);
     }
 
+    @Override
     public void setContext(Context context) {
         throw new UnsupportedOperationException();
     }
 
+    @Override
     public void setProperties(Properties properties) {
         throw new UnsupportedOperationException();
     }
 
+    @Override
     public boolean validate(List<String> warnings) {
         throw new UnsupportedOperationException();
     }
 
+    @Override
     public boolean modelBaseRecordClassGenerated(TopLevelClass tlc,
             IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -92,6 +97,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean modelRecordWithBLOBsClassGenerated(TopLevelClass tlc,
             IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -107,6 +113,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean sqlMapCountByExampleElementGenerated(XmlElement element,
             IntrospectedTable table) {
         boolean rc = true;
@@ -121,6 +128,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean sqlMapDeleteByExampleElementGenerated(XmlElement element,
             IntrospectedTable table) {
         boolean rc = true;
@@ -135,6 +143,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean sqlMapDeleteByPrimaryKeyElementGenerated(XmlElement element,
             IntrospectedTable table) {
         boolean rc = true;
@@ -150,6 +159,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean modelExampleClassGenerated(TopLevelClass tlc,
             IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -164,6 +174,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public List<GeneratedJavaFile> contextGenerateAdditionalJavaFiles(
             IntrospectedTable introspectedTable) {
         List<GeneratedJavaFile> answer = new ArrayList<GeneratedJavaFile>();
@@ -177,6 +188,7 @@ public final class PluginAggregator implements Plugin {
         return answer;
     }
 
+    @Override
     public List<GeneratedXmlFile> contextGenerateAdditionalXmlFiles(
             IntrospectedTable introspectedTable) {
         List<GeneratedXmlFile> answer = new ArrayList<GeneratedXmlFile>();
@@ -190,6 +202,7 @@ public final class PluginAggregator implements Plugin {
         return answer;
     }
 
+    @Override
     public boolean modelPrimaryKeyClassGenerated(TopLevelClass tlc,
             IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -204,6 +217,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean sqlMapResultMapWithoutBLOBsElementGenerated(
             XmlElement element, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -219,6 +233,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean sqlMapExampleWhereClauseElementGenerated(XmlElement element,
             IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -234,6 +249,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean sqlMapInsertElementGenerated(XmlElement element,
             IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -249,6 +265,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean sqlMapResultMapWithBLOBsElementGenerated(XmlElement element,
             IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -264,6 +281,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean sqlMapSelectByExampleWithoutBLOBsElementGenerated(
             XmlElement element, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -279,6 +297,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean sqlMapSelectByExampleWithBLOBsElementGenerated(
             XmlElement element, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -294,6 +313,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean sqlMapSelectByPrimaryKeyElementGenerated(XmlElement element,
             IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -309,6 +329,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean sqlMapGenerated(GeneratedXmlFile sqlMap,
             IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -323,6 +344,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean sqlMapUpdateByExampleSelectiveElementGenerated(
             XmlElement element, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -338,6 +360,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean sqlMapUpdateByExampleWithBLOBsElementGenerated(
             XmlElement element, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -353,6 +376,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean sqlMapUpdateByExampleWithoutBLOBsElementGenerated(
             XmlElement element, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -368,6 +392,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean sqlMapUpdateByPrimaryKeySelectiveElementGenerated(
             XmlElement element, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -383,6 +408,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean sqlMapUpdateByPrimaryKeyWithBLOBsElementGenerated(
             XmlElement element, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -398,6 +424,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean sqlMapUpdateByPrimaryKeyWithoutBLOBsElementGenerated(
             XmlElement element, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -413,6 +440,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientCountByExampleMethodGenerated(Method method,
             Interface interfaze, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -428,6 +456,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientCountByExampleMethodGenerated(Method method,
             TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -443,6 +472,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientDeleteByExampleMethodGenerated(Method method,
             Interface interfaze, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -458,6 +488,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientDeleteByExampleMethodGenerated(Method method,
             TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -473,6 +504,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientDeleteByPrimaryKeyMethodGenerated(Method method,
             Interface interfaze, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -488,6 +520,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientDeleteByPrimaryKeyMethodGenerated(Method method,
             TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -503,6 +536,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientInsertMethodGenerated(Method method, Interface interfaze,
             IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -518,7 +552,14 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
-    //新加的
+    /**
+     * 条件查询列表
+     * @param method
+     * @param interfaze
+     * @param introspectedTable
+     * @return
+     */
+    @Override
     public boolean clientSelectByWhereMethodGenerated(Method method, Interface interfaze,
                                                IntrospectedTable introspectedTable){
 
@@ -534,8 +575,31 @@ public final class PluginAggregator implements Plugin {
 
     }
 
+    /**
+     * 批量保存
+     *
+     * @param method
+     * @param interfaze
+     * @param introspectedTable
+     * @return
+     */
+    @Override
+    public boolean clientInsertBatchMethodGenerated(Method method, Interface interfaze, IntrospectedTable introspectedTable) {
+
+        boolean rc = true;
+        for (Plugin plugin : plugins) {
+            if (!plugin.clientInsertBatchMethodGenerated(method, interfaze,
+                    introspectedTable)) {
+                rc = false;
+                break;
+            }
+        }
+        return rc;
+    }
+
+    @Override
     public boolean clientInsertMethodGenerated(Method method,
-            TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
+                                               TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         boolean rc = true;
 
         for (Plugin plugin : plugins) {
@@ -549,6 +613,8 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+
+    @Override
     public boolean clientGenerated(Interface interfaze,
             TopLevelClass topLevelClass,
             IntrospectedTable introspectedTable) {
@@ -564,6 +630,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientSelectAllMethodGenerated(Method method,
             TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -579,6 +646,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientSelectAllMethodGenerated(Method method,
             Interface interfaze, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -594,6 +662,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientSelectByExampleWithBLOBsMethodGenerated(Method method,
             Interface interfaze, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -609,6 +678,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientSelectByExampleWithBLOBsMethodGenerated(Method method,
             TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -624,6 +694,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientSelectByExampleWithoutBLOBsMethodGenerated(Method method,
             Interface interfaze, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -639,6 +710,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientSelectByExampleWithoutBLOBsMethodGenerated(Method method,
             TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -654,6 +726,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientSelectByPrimaryKeyMethodGenerated(Method method,
             Interface interfaze, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -669,6 +742,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientSelectByPrimaryKeyMethodGenerated(Method method,
             TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -684,6 +758,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientUpdateByExampleSelectiveMethodGenerated(Method method,
             Interface interfaze, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -699,6 +774,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientUpdateByExampleSelectiveMethodGenerated(Method method,
             TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -714,6 +790,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientUpdateByExampleWithBLOBsMethodGenerated(Method method,
             Interface interfaze, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -729,6 +806,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientUpdateByExampleWithBLOBsMethodGenerated(Method method,
             TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -744,6 +822,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientUpdateByExampleWithoutBLOBsMethodGenerated(Method method,
             Interface interfaze, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -759,6 +838,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientUpdateByExampleWithoutBLOBsMethodGenerated(Method method,
             TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -774,6 +854,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientUpdateByPrimaryKeySelectiveMethodGenerated(Method method,
             Interface interfaze, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -789,6 +870,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientUpdateByPrimaryKeySelectiveMethodGenerated(Method method,
             TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -804,6 +886,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientUpdateByPrimaryKeyWithBLOBsMethodGenerated(Method method,
             Interface interfaze, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -819,6 +902,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientUpdateByPrimaryKeyWithBLOBsMethodGenerated(Method method,
             TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -834,6 +918,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientUpdateByPrimaryKeyWithoutBLOBsMethodGenerated(
             Method method, Interface interfaze,
             IntrospectedTable introspectedTable) {
@@ -850,6 +935,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientUpdateByPrimaryKeyWithoutBLOBsMethodGenerated(
             Method method, TopLevelClass topLevelClass,
             IntrospectedTable introspectedTable) {
@@ -866,6 +952,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public List<GeneratedJavaFile> contextGenerateAdditionalJavaFiles() {
         List<GeneratedJavaFile> answer = new ArrayList<GeneratedJavaFile>();
         for (Plugin plugin : plugins) {
@@ -878,6 +965,7 @@ public final class PluginAggregator implements Plugin {
         return answer;
     }
 
+    @Override
     public List<GeneratedXmlFile> contextGenerateAdditionalXmlFiles() {
         List<GeneratedXmlFile> answer = new ArrayList<GeneratedXmlFile>();
         for (Plugin plugin : plugins) {
@@ -890,6 +978,7 @@ public final class PluginAggregator implements Plugin {
         return answer;
     }
 
+    @Override
     public boolean sqlMapDocumentGenerated(Document document,
             IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -904,6 +993,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean modelFieldGenerated(Field field,
             TopLevelClass topLevelClass, IntrospectedColumn introspectedColumn,
             IntrospectedTable introspectedTable,
@@ -921,6 +1011,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean modelGetterMethodGenerated(Method method,
             TopLevelClass topLevelClass, IntrospectedColumn introspectedColumn,
             IntrospectedTable introspectedTable,
@@ -938,6 +1029,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean modelSetterMethodGenerated(Method method,
             TopLevelClass topLevelClass, IntrospectedColumn introspectedColumn,
             IntrospectedTable introspectedTable,
@@ -955,6 +1047,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean sqlMapInsertSelectiveElementGenerated(XmlElement element,
             IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -970,6 +1063,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientInsertSelectiveMethodGenerated(Method method,
             Interface interfaze, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -985,6 +1079,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean clientInsertSelectiveMethodGenerated(Method method,
             TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -1000,12 +1095,14 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public void initialized(IntrospectedTable introspectedTable) {
         for (Plugin plugin : plugins) {
             plugin.initialized(introspectedTable);
         }
     }
 
+    @Override
     public boolean sqlMapBaseColumnListElementGenerated(XmlElement element,
             IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -1021,6 +1118,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean sqlMapBlobColumnListElementGenerated(XmlElement element,
             IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -1036,6 +1134,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean providerGenerated(TopLevelClass topLevelClass,
             IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -1050,6 +1149,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean providerApplyWhereMethodGenerated(Method method,
             TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -1065,6 +1165,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean providerCountByExampleMethodGenerated(Method method,
             TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -1080,6 +1181,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean providerDeleteByExampleMethodGenerated(Method method,
             TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -1095,6 +1197,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean providerInsertSelectiveMethodGenerated(Method method,
             TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -1110,6 +1213,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean providerSelectByExampleWithBLOBsMethodGenerated(
             Method method, TopLevelClass topLevelClass,
             IntrospectedTable introspectedTable) {
@@ -1126,6 +1230,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean providerSelectByExampleWithoutBLOBsMethodGenerated(
             Method method, TopLevelClass topLevelClass,
             IntrospectedTable introspectedTable) {
@@ -1142,6 +1247,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean providerUpdateByExampleSelectiveMethodGenerated(
             Method method, TopLevelClass topLevelClass,
             IntrospectedTable introspectedTable) {
@@ -1158,6 +1264,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean providerUpdateByExampleWithBLOBsMethodGenerated(
             Method method, TopLevelClass topLevelClass,
             IntrospectedTable introspectedTable) {
@@ -1174,6 +1281,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean providerUpdateByExampleWithoutBLOBsMethodGenerated(
             Method method, TopLevelClass topLevelClass,
             IntrospectedTable introspectedTable) {
@@ -1190,6 +1298,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean providerUpdateByPrimaryKeySelectiveMethodGenerated(
             Method method, TopLevelClass topLevelClass,
             IntrospectedTable introspectedTable) {
@@ -1206,6 +1315,7 @@ public final class PluginAggregator implements Plugin {
         return rc;
     }
 
+    @Override
     public boolean sqlMapSelectAllElementGenerated(XmlElement element,
             IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -1217,6 +1327,19 @@ public final class PluginAggregator implements Plugin {
             }
         }
 
+        return rc;
+    }
+
+    @Override
+    public boolean sqlMapInsertBatchElementGenerated(XmlElement element, IntrospectedTable introspectedTable) {
+        boolean rc = true;
+
+        for (Plugin plugin : plugins) {
+            if (!plugin.sqlMapInsertBatchElementGenerated(element, introspectedTable)) {
+                rc = false;
+                break;
+            }
+        }
         return rc;
     }
 }

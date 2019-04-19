@@ -92,8 +92,10 @@ public class JavaMapperGenerator extends AbstractJavaClientGenerator {
         addUpdateByPrimaryKeyWithBLOBsMethod(interfaze);
         addUpdateByPrimaryKeyWithoutBLOBsMethod(interfaze);
 
-        //新加的方法
+        // 条件查询
         addSelectByWhereMethod(interfaze);
+        // 批量插入
+        addInsertBatchMethod(interfaze);
 
         List<CompilationUnit> answer = new ArrayList<CompilationUnit>();
         if (context.getPlugins().clientGenerated(interfaze, null,
@@ -208,10 +210,24 @@ public class JavaMapperGenerator extends AbstractJavaClientGenerator {
         }
     }
 
-    //新加的方法
+    /**
+     * 条件查询列表
+     * @param interfaze
+     */
     protected void addSelectByWhereMethod(Interface interfaze) {
         if (introspectedTable.getRules().generateSelectByWhere()) {
             AbstractJavaMapperMethodGenerator methodGenerator = new SelectByWhereMethodGenerator(false);
+            initializeAndExecuteGenerator(methodGenerator, interfaze);
+        }
+    }
+
+    /**
+     * 条件查询列表
+     * @param interfaze
+     */
+    protected void addInsertBatchMethod(Interface interfaze) {
+        if (introspectedTable.getRules().generateInsertBatch()) {
+            AbstractJavaMapperMethodGenerator methodGenerator = new InsertBatchMethodGenerator();
             initializeAndExecuteGenerator(methodGenerator, interfaze);
         }
     }

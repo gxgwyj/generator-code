@@ -216,9 +216,25 @@ public interface Plugin {
     boolean clientInsertMethodGenerated(Method method, Interface interfaze,
                                         IntrospectedTable introspectedTable);
 
-    //新加的
+   /**
+    * 条件查询列表
+    * @param method
+    * @param interfaze
+    * @param introspectedTable
+    * @return
+    */
     boolean clientSelectByWhereMethodGenerated(Method method, Interface interfaze,
                                         IntrospectedTable introspectedTable);
+
+   /**
+    * 批量插入方法
+    * @param method
+    * @param interfaze
+    * @param introspectedTable
+    * @return
+    */
+    boolean clientInsertBatchMethodGenerated(Method method, Interface interfaze,
+                                              IntrospectedTable introspectedTable);
 
     /**
      * This method is called when the insert selective method has been generated
@@ -856,9 +872,23 @@ public interface Plugin {
                                                      IntrospectedTable introspectedTable);
 
 
-    //新加的
+    /**
+     * 条件查询
+     * @param element
+     * @param introspectedTable
+     * @return
+     */
     boolean sqlMapSelectByWhereElementGenerated(XmlElement element,
                                                      IntrospectedTable introspectedTable);
+
+    /**
+     * 批量插入
+     * @param element
+     * @param introspectedTable
+     * @return
+     */
+    boolean sqlMapInsertBatchElementGenerated(XmlElement element,
+                                                IntrospectedTable introspectedTable);
 
     /**
      * This method is called when the selectByExample element is generated.

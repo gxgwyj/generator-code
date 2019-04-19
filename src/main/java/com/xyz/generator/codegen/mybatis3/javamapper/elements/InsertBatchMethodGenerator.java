@@ -22,16 +22,39 @@ public class InsertBatchMethodGenerator extends AbstractJavaMapperMethodGenerato
         // 需要引入的类
         Set<FullyQualifiedJavaType> importedTypes = new TreeSet<FullyQualifiedJavaType>();
 
+        //----------------------------------设置方法属性-----------------------------------
         Method method = new Method();
         // 访问权限
         method.setVisibility(JavaVisibility.PUBLIC);
         // 方法名称
-        method.setName(introspectedTable.getInsertStatementId());
+        method.setName(introspectedTable.getInserBatchStatementId());
         // 方法返回类别
         method.setReturnType(FullyQualifiedJavaType.getIntInstance());
         // 方法参数
-        method.addParameter(new Parameter(new FullyQualifiedJavaType(
-                introspectedTable.getBaseRecordType()), "record"));
+        //返回类型(列表)
+        FullyQualifiedJavaType param = FullyQualifiedJavaType
+                .getNewListInstance();
+        FullyQualifiedJavaType listType = new FullyQualifiedJavaType(
+                introspectedTable.getBaseRecordType());
+        param.addTypeArgument(listType);
 
+        method.addParameter(new Parameter(param,"recordList"));
+        // 方法加注解
+        addMapperAnnotations(interfaze, method);
+
+        // 方法加入生成器
+        context.getCommentGenerator().addGeneralMethodComment(method, introspectedTable);
+
+        if (context.getPlugins().clientInsertBatchMethodGenerated(
+                method, interfaze, introspectedTable)) {
+            interfaze.addImportedTypes(importedTypes);
+            interfaze.addMethod(method);
+        }
+
+    }
+
+
+    public void addMapperAnnotations(Interface interfaze, Method method) {
+        return;
     }
 }

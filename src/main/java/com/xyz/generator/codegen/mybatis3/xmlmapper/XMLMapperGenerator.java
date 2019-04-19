@@ -70,6 +70,8 @@ public class XMLMapperGenerator extends AbstractXmlGenerator {
         addUpdateByPrimaryKeyWithoutBLOBsElement(answer);
         //新加的
         addSelectByWhereElement(answer);
+        //批量插入
+        addInsertBatchElement(answer);
 
         return answer;
     }
@@ -224,12 +226,28 @@ public class XMLMapperGenerator extends AbstractXmlGenerator {
         }
     }
 
-    //新加的
+    /**
+     * 条件查询
+     * @param parentElement
+     */
     protected void addSelectByWhereElement(
             XmlElement parentElement) {
         if (introspectedTable.getRules()
                 .generateSelectByWhere()) {
             AbstractXmlElementGenerator elementGenerator = new SelectByWhereElementGenerator();
+            initializeAndExecuteGenerator(elementGenerator, parentElement);
+        }
+    }
+
+    /**
+     * 批量插入
+     * @param parentElement
+     */
+    protected void addInsertBatchElement(
+            XmlElement parentElement) {
+        if (introspectedTable.getRules()
+                .generateInsertBatch()) {
+            AbstractXmlElementGenerator elementGenerator = new InsertBatchElementGenerator();
             initializeAndExecuteGenerator(elementGenerator, parentElement);
         }
     }

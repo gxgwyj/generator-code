@@ -250,6 +250,15 @@ public interface Rules {
     IntrospectedTable getIntrospectedTable();
 
 
-    //新加的
+    /**
+     * 条件查询
+     * @return
+     */
     boolean generateSelectByWhere();
+
+    /**
+     * 批量插入
+     * @return
+     */
+    boolean generateInsertBatch();
 }
