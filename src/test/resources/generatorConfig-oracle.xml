@@ -55,7 +55,7 @@
         <!--<table tableName="MF_DEBTS_COMPENSATION" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
                <!--enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >-->
         <!--</table>-->
-        <table tableName="MF_DEBTS_COMPENSATION_TASK" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+        <table tableName="MF_APP_TERMINAL_INFO" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false" enableInsert="false" enableUpdateByPrimaryKey="false"  >
         </table>
     </context>
